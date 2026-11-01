@@ -1,5 +1,6 @@
 from infraestructura.lector_excel import LectorExcel
-from infraestructura.base_datos import crear_tablas, obtener_conexion
+from infraestructura.esquema_db import crear_tablas
+from infraestructura.base_datos import obtener_conexion
 
 
 class ServicioImportador:

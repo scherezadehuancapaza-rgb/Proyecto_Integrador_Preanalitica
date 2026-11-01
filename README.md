@@ -40,8 +40,9 @@ Preanalitica/
 │
 ├── infraestructura/               # CAPA DE INFRAESTRUCTURA (Conexiones externas)
 │   ├── __init__.py
-│   ├── base_datos.py              # Conexión a SQLite y creación de tablas
+│   ├── base_datos.py              # Conexión a SQLite 
 │   ├── enviador_correo.py         # Envío SMTP y tareas programadas (APScheduler)
+|     |___esquema_db.py             # creación de tablas
 │   ├── lector_excel.py            # Lectura del Excel con Pandas
 │   └── repositorio.py             # Consultas SQL (Patrón Repository)
 │
