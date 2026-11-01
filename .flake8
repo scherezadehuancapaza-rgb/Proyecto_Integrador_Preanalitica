@@ -1,0 +1,5 @@
+[flake8]
+max-line-length = 120
+exclude = .git,__pycache__,venv,datos
+# Ignoramos reglas puramente visuales (líneas en blanco, espacios finales)
+ignore = E203, W503, W291, W293, E302, E305, E116, E306, E261, E701

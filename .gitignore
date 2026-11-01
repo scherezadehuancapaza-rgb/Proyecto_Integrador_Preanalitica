@@ -1,0 +1,19 @@
+# Entorno virtual de Python (no subir, es muy pesado)
+venv/
+
+# Archivos compilados de Python
+__pycache__/
+*.pyc
+
+# La base de datos generada (se puede recrear con el script)
+datos/preanalitica.db
+
+# Variables de entorno secretas (correos, contraseñas)
+.env
+
+# Archivos del sistema operativo (Mac/Windows)
+.DS_Store
+Thumbs.db
+
+# Caché de pruebas de Pytest
+.pytest_cache/

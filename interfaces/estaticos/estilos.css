@@ -1,0 +1,130 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;
+    color: #333;
+}
+
+.header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.sugerencias-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-top: none;
+    max-height: 200px;
+    overflow-y: auto;
+    background: white;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+}
+
+.sugerencias-lista li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.sugerencias-lista li:hover {
+    background-color: #e9ecef;
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+}
+
+.btn-primario { background-color: #3498db; }
+.btn-exito { background-color: #2ecc71; }
+.btn-peligro { background-color: #e74c3c; }
+.btn-secundario { background-color: #95a5a6; }
+
+.advertencia {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 15px;
+    border-left: 5px solid #ffeeba;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.tubo-card {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background: #fff;
+}
+
+.tubo-titulo {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+/* --- Estilos para la lista de exámenes seleccionados --- */
+.examen-seleccionado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background-color: #f8f9fa;
+    border-left: 4px solid #3498db;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.examen-info {
+    flex-grow: 1;
+    font-size: 16px;
+}
+
+.btn-eliminar {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.btn-eliminar:hover {
+    background-color: #c0392b;
+}

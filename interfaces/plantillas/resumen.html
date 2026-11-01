@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block titulo %}Resumen de Toma{% endblock %}
+
+{% block contenido %}
+<div class="header">
+    <h2>Resumen de Toma de Muestras</h2>
+    <div>
+        <span>Enfermera/o: <strong>{{ enfermera }}</strong></span>
+        <a href="/logout" class="btn btn-peligro" style="margin-left: 15px; text-decoration: none; font-size: 14px; padding: 5px 10px;">Cerrar Sesión</a>
+    </div>
+</div>
+
+<div class="container">
+    {% if resumen.alertas %}
+    <div class="advertencia">
+        <h4>⚠️ Advertencias Preanalíticas:</h4>
+        <ul style="margin: 0; padding-left: 20px;">
+            {% for alerta in resumen.alertas %}
+                <li><strong>[{{ alerta.tipo }}]</strong> {{ alerta.mensaje }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <div class="advertencia" style="background-color: #d1ecf1; color: #0c5460; border-left-color: #bee5eb;">
+        <strong>Nota:</strong> Esta versión no calcula volúmenes; verifique el volumen requerido en el manual de toma de muestras del laboratorio.
+    </div>
+
+    <h3>Tubos a tomar (en orden de extracción)</h3>
+    {% for tubo in resumen.tubos_ordenados %}
+        <div class="tubo-card">
+            <div class="tubo-titulo">
+                Paso {{ tubo.orden_extraccion }}: Tubo {{ tubo.tipo_tubo }} (Tapa {{ tubo.color_tapa }})
+            </div>
+            <p><strong>Aditivo:</strong> {{ tubo.aditivo }}</p>
+            <p><strong>Exámenes en este tubo:</strong></p>
+            <ul>
+                {% for ex in tubo.examenes %}
+                    <li>{{ ex.nombre_examen }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+        <p>No se seleccionaron exámenes con tubos asignados.</p>
+    {% endfor %}
+
+    {% if resumen.examenes_derivados %}
+        <h3 style="margin-top: 30px; color: #e67e22;">Exámenes Derivados a Laboratorio Externo</h3>
+        <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+            <tr style="background-color: #f8f9fa; border-bottom: 2px solid #dee2e6;">
+                <th style="padding: 10px; text-align: left;">Examen</th>
+                <th style="padding: 10px; text-align: left;">Laboratorio</th>
+                <th style="padding: 10px; text-align: left;">Fecha de Envío</th>
+            </tr>
+            {% for ex in resumen.examenes_derivados %}
+            <tr style="border-bottom: 1px solid #dee2e6;">
+                <td style="padding: 10px;">{{ ex.nombre_examen }}</td>
+                <td style="padding: 10px;">{{ ex.laboratorio_externo }}</td>
+                <td style="padding: 10px;">{{ ex.fecha_envio_calculada }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+    <div style="margin-top: 30px; padding: 15px; background-color: #e8f4f8; border-radius: 4px;">
+        <h4>💉 Recordatorio para toma con jeringa:</h4>
+        <p>Si se utiliza jeringa, respete el mismo orden de extracción y utilice un dispositivo de transferencia. <strong>Nunca abra los tubos</strong>.</p>
+    </div>
+
+    <div style="margin-top: 30px; text-align: center;">
+        <button onclick="window.print()" class="btn btn-primario">Imprimir Resumen</button>
+        <a href="/nuevo_paciente" class="btn btn-exito" style="text-decoration: none;">Nuevo Paciente</a>
+    </div>
+</div>
+{% endblock %}

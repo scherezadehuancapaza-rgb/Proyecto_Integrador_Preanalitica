@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block titulo %}Buscador{% endblock %}
+
+{% block contenido %}
+<div class="header">
+    <h2>Preanalítica</h2>
+    <div>
+        <span>Enfermera/o: <strong>{{ enfermera }}</strong></span>
+        <a href="/logout" class="btn btn-peligro" style="margin-left: 15px; text-decoration: none; font-size: 14px; padding: 5px 10px;">Cerrar Sesión</a>
+    </div>
+</div>
+
+<div class="container">
+    <h3>Buscar Examen</h3>
+    <div style="position: relative;">
+        <input type="text" id="input-busqueda" placeholder="Ej: gluco, hba1c, creatinia...">
+        <ul id="sugerencias" class="sugerencias-lista"></ul>
+    </div>
+
+    <h3 style="margin-top: 30px;">Exámenes Seleccionados</h3>
+    <form action="/resumen" method="POST">
+        <ul id="lista-seleccionados" style="list-style: none; padding: 0;"></ul>
+        <br>
+        <button type="submit" class="btn btn-exito">Ver Resumen de Tubos</button>
+        <a href="/nuevo_paciente" class="btn btn-secundario" style="text-decoration: none;">Nuevo Paciente</a>
+    </form>
+</div>
+
+<script src="{{ url_for('static', filename='buscador.js') }}"></script>
+{% endblock %}
