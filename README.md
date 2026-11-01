@@ -21,6 +21,7 @@ El proyecto aplica los principios **SOLID** y una **Arquitectura en capas con pr
 4. **Capa de Interfaces (`interfaces/`):** Rutas de Flask, plantillas Jinja2 (`base.html`, `login.html`, `buscador.html`) y archivos estáticos (CSS/JS).
 5. **Carpeta de Datos Locales (`datos/`):** Directorio de almacenamiento local exigido por la configuración. Aquí se guarda el archivo Excel de prueba (insumo) y, a través de la capa de infraestructura, se genera automáticamente la base de datos **`preanalitica.db`** para su uso por parte del sistema.
 
+```text
 Preanalitica/
 │
 ├── datos/                         # Datos de prueba (Excel)
@@ -72,8 +73,7 @@ Preanalitica/
 ├── .env.example                   # Plantilla de variables SMTP
 ├── .gitignore                     # Archivos ignorados por Git
 └── README.md                      # Este documento
----
-
+```
 ## F. Desarrollo e Integración- F.1 Stack Tecnológico
 - **Backend:** Python 3.10+ / Flask
 - **Base de Datos:** SQLite
